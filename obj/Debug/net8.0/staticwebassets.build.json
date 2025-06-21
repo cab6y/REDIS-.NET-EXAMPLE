@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "aEC4hsC5zVojBPfa0k2OfWB4btFK9wgEXbTPFdivoAY=",
+  "Source": "REDIS-.NET-API",
+  "BasePath": "_content/REDIS-.NET-API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
