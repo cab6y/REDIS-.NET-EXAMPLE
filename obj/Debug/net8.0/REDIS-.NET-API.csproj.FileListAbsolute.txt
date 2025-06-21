@@ -34,3 +34,6 @@ C:\VisualProjects\RedisMinimalApi\REDIS-.NET-API\obj\Debug\net8.0\refint\REDIS-.
 C:\VisualProjects\RedisMinimalApi\REDIS-.NET-API\obj\Debug\net8.0\REDIS-.NET-API.pdb
 C:\VisualProjects\RedisMinimalApi\REDIS-.NET-API\obj\Debug\net8.0\REDIS-.NET-API.genruntimeconfig.cache
 C:\VisualProjects\RedisMinimalApi\REDIS-.NET-API\obj\Debug\net8.0\ref\REDIS-.NET-API.dll
+C:\VisualProjects\RedisMinimalApi\REDIS-.NET-API\obj\Debug\net8.0\REDIS-.NET-API.sourcelink.json
+C:\VisualProjects\RedisMinimalApi\REDIS-.NET-API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\VisualProjects\RedisMinimalApi\REDIS-.NET-API\bin\Debug\net8.0\StackExchange.Redis.dll

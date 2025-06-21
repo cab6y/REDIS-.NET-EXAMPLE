@@ -1,5 +1,68 @@
 [
   {
+    "ContainingType": "REDIS_.NET_API.Controllers.RedisManagementController",
+    "Method": "DeleteByKey",
+    "RelativePath": "api/RedisManagement/delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "REDIS_.NET_API.Controllers.RedisManagementController",
+    "Method": "FilterValues",
+    "RelativePath": "api/RedisManagement/filter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "REDIS_.NET_API.Controllers.RedisManagementController",
+    "Method": "GetAllValues",
+    "RelativePath": "api/RedisManagement/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "REDIS_.NET_API.Controllers.RedisManagementController",
+    "Method": "InsertValues",
+    "RelativePath": "api/RedisManagement/InsertValues",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "values",
+        "Type": "System.Collections.Generic.List\u00601[[System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "REDIS_.NET_API.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
