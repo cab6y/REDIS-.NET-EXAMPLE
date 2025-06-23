@@ -40,9 +40,34 @@ namespace REDIS_.NET_API.Controllers
             return Ok(filtered);
         }
 
-       
-    
+        [HttpPost("PostUserAge")]
+        public async Task<IActionResult> PostUserAges(List<Dictionary<string,int>> userages)
+        {
+            var result = await _redisManagementService.PostUserAges(userages);
+            if (result == true)
+                return Ok("User ages inserted successfully.");
+            else
+                return BadRequest("Failed to insert user ages.");
+        }
 
+        [HttpGet("GetUserAge")]
+        public async Task<IActionResult> GetUserAge(string key)
+        {
+            var userAge = await _redisManagementService.GetUserAge(key);
+            if (userAge != null)
+                return Ok(userAge);
+            else
+                return NotFound("User age not found.");
+        }
 
+        [HttpPost("SendMessage")]
+        public async Task<IActionResult> SendMessage(string field,string value)
+        {
+            var result = await _redisManagementService.SendMessage(field, value);
+            if (result == true)
+                return Ok("Message sent successfully.");
+            else
+                return BadRequest("Failed to send message.");
+        }
     }
 }

@@ -78,9 +78,75 @@
             "schema": {
               "type": "string"
             }
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RedisManagement/PostUserAge": {
+      "post": {
+        "tags": [
+          "RedisManagement"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RedisManagement/GetUserAge": {
+      "get": {
+        "tags": [
+          "RedisManagement"
+        ],
+        "parameters": [
           {
-            "name": "value",
+            "name": "key",
             "in": "query",
             "schema": {
               "type": "string"
@@ -94,14 +160,21 @@
         }
       }
     },
-    "/api/RedisManagement/delete": {
-      "delete": {
+    "/api/RedisManagement/SendMessage": {
+      "post": {
         "tags": [
           "RedisManagement"
         ],
         "parameters": [
           {
-            "name": "key",
+            "name": "field",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
             "in": "query",
             "schema": {
               "type": "string"

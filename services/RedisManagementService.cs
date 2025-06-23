@@ -12,13 +12,13 @@ namespace REDIS_.NET_API.services
             var redis = await ConnectionMultiplexer.ConnectAsync("localhost:6379");
             var db = redis.GetDatabase();
             var server = redis.GetServer("localhost", 6379);
-            return (db, redis,server);
+            return (db, redis, server);
         }
 
 
         public async Task<bool> InsertValues(List<Dictionary<string, string>> values)
         {
-            var (db, _redis , _server) = await Connect(); // sadece db'yi kullanacağız
+            var (db, _redis, _server) = await Connect(); // sadece db'yi kullanacağız
 
             foreach (var value in values)
             {
@@ -32,9 +32,9 @@ namespace REDIS_.NET_API.services
         }
 
 
-        public async Task<List<Dictionary<string,string>>> GetListAsync()
+        public async Task<List<Dictionary<string, string>>> GetListAsync()
         {
-            var (db, _redis , _server) = await Connect();
+            var (db, _redis, _server) = await Connect();
 
             // Tüm anahtarları al
             var keys = _server.Keys().ToArray();
@@ -70,6 +70,41 @@ namespace REDIS_.NET_API.services
 
             return keyValuePairs.ToDictionary(x => x.Key, x => x.Value);
         }
+        public string userAgeSet = "users:age";
 
+        public async Task<bool> PostUserAges(List<Dictionary<string, int>> list)
+        {
+            var (db, _redis, _server) = await Connect();
+            foreach (var item in list)
+            {
+                foreach (var kvp in item)
+                {
+                    db.SortedSetAdd(userAgeSet, new SortedSetEntry[]
+{
+    new(kvp.Key, kvp.Value),
+});
+                }
+            }
+            return true;
+
+        }
+        public async Task<int> GetUserAge(string key)
+        {
+            var (db, _redis, _server) = await Connect();
+            var age = await db.SortedSetScoreAsync(userAgeSet, key);
+            if (age.HasValue)
+            {
+                return (int)age.Value;
+            }
+            return -1; // Eğer kullanıcı bulunamazsa -1 döndür
+        }
+
+        public async Task<bool> SendMessage(string field,string value)
+        {
+            var (db, redis, server) = await Connect();
+            var pubSub = redis.GetSubscriber();
+            await db.StreamAddAsync("mystream", field, value);
+            return true;
+        }
     }
 }
